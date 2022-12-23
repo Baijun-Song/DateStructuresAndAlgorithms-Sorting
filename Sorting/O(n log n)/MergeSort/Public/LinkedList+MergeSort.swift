@@ -5,20 +5,11 @@ extension LinkedList {
     by areInAscendingOrder: (Element, Element) -> Bool
   ) {
     let unsafeNodes = breakIntoUnsafeNodes()
-    let sortedUnsafeNodes = __mergeSort(
+    let sortedUnsafeNodes = mergeSort(
       unsafeNodes,
       by: areInAscendingOrder
     )
     self = LinkedList(unsafeNodes: sortedUnsafeNodes)
-  }
-  
-  private func __mergeSort(
-    _ unsafeNodes: [LinkedList.UnsafeNode],
-    by areInAscendingOrder: (Element, Element) -> Bool
-  ) -> [LinkedList.UnsafeNode] {
-    unsafeNodes.mergeSorted { a, b in
-      areInAscendingOrder(a.value, b.value)
-    }
   }
 
   public func mergeSorted(
@@ -27,5 +18,14 @@ extension LinkedList {
     var copy = self
     copy.mergeSort(by: areInAscendingOrder)
     return copy
+  }
+  
+  private func mergeSort(
+    _ unsafeNodes: [LinkedList.UnsafeNode],
+    by areInAscendingOrder: (Element, Element) -> Bool
+  ) -> [LinkedList.UnsafeNode] {
+    unsafeNodes.mergeSorted { a, b in
+      areInAscendingOrder(a.value, b.value)
+    }
   }
 }

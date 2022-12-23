@@ -17,7 +17,7 @@ extension Array where Element == Int {
       }
     }
     var base = 1
-    for _ in 0..<(positive.max()?._digitCount ?? 0) {
+    for _ in 0..<(positive.max()?.digitCount ?? 0) {
       var buckets: [[Int]] = .init(repeating: [], count: 10)
       for number in positive {
         let remain = number / base
@@ -28,7 +28,7 @@ extension Array where Element == Int {
       positive = buckets.flatMap { $0 }
     }
     base = 1
-    for _ in 0..<(negative.min()?._digitCount ?? 0) {
+    for _ in 0..<(negative.min()?.digitCount ?? 0) {
       var buckets: [[Int]] = .init(repeating: [], count: 10)
       for number in negative {
         let remain = number / base

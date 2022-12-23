@@ -18,10 +18,10 @@ extension Array {
     
     let left = Array(leftSlice).mergeSorted(by: areInAscendingOrder)
     let right = Array(rightSlice).mergeSorted(by: areInAscendingOrder)
-    return __merge(left, right, by: areInAscendingOrder)
+    return merge(left, right, by: areInAscendingOrder)
   }
   
-  private func __merge(
+  private func merge(
     _ left: Self,
     _ right: Self,
     by areInAscendingOrder: (Element, Element) -> Bool
