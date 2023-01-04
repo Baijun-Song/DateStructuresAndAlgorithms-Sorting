@@ -1,12 +1,12 @@
 extension Int {
   var digitCount: Int {
-    var count = 0
+    var result = 0
     var copy = self
     while copy != 0 {
-      count += 1
+      result += 1
       copy /= 10
     }
-    return count
+    return result
   }
   
   func digitFromRight(at position: Int) -> Int? {
