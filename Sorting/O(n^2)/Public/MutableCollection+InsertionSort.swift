@@ -7,15 +7,15 @@ extension MutableCollection {
       return
     }
     for lowerIndex in reversedIndices[1...] {
-      var currentIndex = lowerIndex
-      while currentIndex < upperIndex {
-        let nextIndex = index(after: currentIndex)
-        if areInAscendingOrder(self[nextIndex], self[currentIndex]) {
-          swapAt(nextIndex, currentIndex)
+      var currIndex = lowerIndex
+      while currIndex < upperIndex {
+        let nextIndex = index(after: currIndex)
+        if areInAscendingOrder(self[nextIndex], self[currIndex]) {
+          swapAt(nextIndex, currIndex)
         } else {
           break
         }
-        currentIndex = nextIndex
+        currIndex = nextIndex
       }
     }
   }

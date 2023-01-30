@@ -4,12 +4,12 @@ extension MutableCollection {
   ) {
     for lowerIndex in indices {
       var candidate = lowerIndex
-      var currentIndex = index(after: lowerIndex)
-      while currentIndex < endIndex {
-        if areInAscendingOrder(self[currentIndex], self[candidate]) {
-          candidate = currentIndex
+      var currIndex = index(after: lowerIndex)
+      while currIndex < endIndex {
+        if areInAscendingOrder(self[currIndex], self[candidate]) {
+          candidate = currIndex
         }
-        formIndex(after: &currentIndex)
+        formIndex(after: &currIndex)
       }
       if candidate != lowerIndex {
         swapAt(candidate, lowerIndex)

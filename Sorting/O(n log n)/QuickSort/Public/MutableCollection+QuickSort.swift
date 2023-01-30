@@ -41,13 +41,13 @@ extension MutableCollection {
     by areInAscendingOrder: (Element, Element) -> Bool
   ) -> Index {
     var middleIndex = subrange.lowerBound
-    var currentIndex = subrange.lowerBound
-    while currentIndex < subrange.upperBound {
-      if areInAscendingOrder(self[currentIndex], pivot) {
-        swapAt(currentIndex, middleIndex)
+    var currIndex = subrange.lowerBound
+    while currIndex < subrange.upperBound {
+      if areInAscendingOrder(self[currIndex], pivot) {
+        swapAt(currIndex, middleIndex)
         formIndex(after: &middleIndex)
       }
-      formIndex(after: &currentIndex)
+      formIndex(after: &currIndex)
     }
     return middleIndex
   }

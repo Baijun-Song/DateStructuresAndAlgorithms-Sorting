@@ -4,14 +4,14 @@ extension MutableCollection {
   ) {
     for upperIndex in indices.reversed() {
       var swapped = false
-      var currentIndex = startIndex
-      while currentIndex < upperIndex {
-        let nextIndex = index(after: currentIndex)
-        if areInAscendingOrder(self[nextIndex], self[currentIndex]) {
-          swapAt(currentIndex, nextIndex)
+      var currIndex = startIndex
+      while currIndex < upperIndex {
+        let nextIndex = index(after: currIndex)
+        if areInAscendingOrder(self[nextIndex], self[currIndex]) {
+          swapAt(currIndex, nextIndex)
           swapped = true
         }
-        currentIndex = nextIndex
+        currIndex = nextIndex
       }
       if !swapped {
         return
